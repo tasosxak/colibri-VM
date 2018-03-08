@@ -4,39 +4,39 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Accessible.h</itemPath>
-      <itemPath>Allocated_Object.h</itemPath>
-      <itemPath>Array.h</itemPath>
-      <itemPath>ArrayReference.h</itemPath>
-      <itemPath>CNIHandlerBlock.h</itemPath>
-      <itemPath>CVM.h</itemPath>
-      <itemPath>CallableNativeFunction.h</itemPath>
-      <itemPath>Class.h</itemPath>
-      <itemPath>Code.h</itemPath>
-      <itemPath>Data_Type.h</itemPath>
-      <itemPath>Decimal.h</itemPath>
-      <itemPath>Double.h</itemPath>
-      <itemPath>Field.h</itemPath>
-      <itemPath>Float.h</itemPath>
-      <itemPath>Heap.h</itemPath>
-      <itemPath>Int.h</itemPath>
-      <itemPath>IntArray.h</itemPath>
-      <itemPath>Integer.h</itemPath>
-      <itemPath>Library.h</itemPath>
-      <itemPath>Literal.h</itemPath>
-      <itemPath>Memory_Manager.h</itemPath>
-      <itemPath>Method.h</itemPath>
-      <itemPath>Native_Method_Signature.h</itemPath>
-      <itemPath>Numeric.h</itemPath>
-      <itemPath>Object.h</itemPath>
-      <itemPath>Primitive.h</itemPath>
-      <itemPath>Reference.h</itemPath>
-      <itemPath>System.h</itemPath>
-      <itemPath>WrapperGenerator.h</itemPath>
-      <itemPath>cni.h</itemPath>
-      <itemPath>hash_table.h</itemPath>
-      <itemPath>symbol.h</itemPath>
-      <itemPath>vs_stack.h</itemPath>
+      <itemPath>includes/Accessible.h</itemPath>
+      <itemPath>includes/Allocated_Object.h</itemPath>
+      <itemPath>includes/Array.h</itemPath>
+      <itemPath>includes/ArrayReference.h</itemPath>
+      <itemPath>includes/CNIHandlerBlock.h</itemPath>
+      <itemPath>includes/CVM.h</itemPath>
+      <itemPath>includes/CallableNativeFunction.h</itemPath>
+      <itemPath>includes/Class.h</itemPath>
+      <itemPath>includes/Code.h</itemPath>
+      <itemPath>includes/Data_Type.h</itemPath>
+      <itemPath>includes/Decimal.h</itemPath>
+      <itemPath>includes/Double.h</itemPath>
+      <itemPath>includes/Field.h</itemPath>
+      <itemPath>includes/Float.h</itemPath>
+      <itemPath>includes/Heap.h</itemPath>
+      <itemPath>includes/Int.h</itemPath>
+      <itemPath>includes/IntArray.h</itemPath>
+      <itemPath>includes/Integer.h</itemPath>
+      <itemPath>includes/Library.h</itemPath>
+      <itemPath>includes/Literal.h</itemPath>
+      <itemPath>includes/Memory_Manager.h</itemPath>
+      <itemPath>includes/Method.h</itemPath>
+      <itemPath>includes/Native_Method_Signature.h</itemPath>
+      <itemPath>includes/Numeric.h</itemPath>
+      <itemPath>includes/Object.h</itemPath>
+      <itemPath>includes/Primitive.h</itemPath>
+      <itemPath>includes/Reference.h</itemPath>
+      <itemPath>includes/System.h</itemPath>
+      <itemPath>includes/WrapperGenerator.h</itemPath>
+      <itemPath>includes/cni.h</itemPath>
+      <itemPath>includes/hash_table.h</itemPath>
+      <itemPath>includes/symbol.h</itemPath>
+      <itemPath>includes/vs_stack.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -45,38 +45,38 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Accessible.cpp</itemPath>
-      <itemPath>Allocated_Object.cpp</itemPath>
-      <itemPath>Array.cpp</itemPath>
-      <itemPath>ArrayReference.cpp</itemPath>
-      <itemPath>CNIHandlerBlock.cpp</itemPath>
-      <itemPath>CVM.cpp</itemPath>
-      <itemPath>CallableNativeFunction.cpp</itemPath>
-      <itemPath>Class.cpp</itemPath>
-      <itemPath>Code.cpp</itemPath>
-      <itemPath>Data_Type.cpp</itemPath>
-      <itemPath>Decimal.cpp</itemPath>
-      <itemPath>Double.cpp</itemPath>
-      <itemPath>Field.cpp</itemPath>
-      <itemPath>Float.cpp</itemPath>
-      <itemPath>Heap.cpp</itemPath>
-      <itemPath>Int.cpp</itemPath>
-      <itemPath>IntArray.cpp</itemPath>
-      <itemPath>Integer.cpp</itemPath>
-      <itemPath>Library.cpp</itemPath>
-      <itemPath>Literal.cpp</itemPath>
-      <itemPath>Memory_Manager.cpp</itemPath>
-      <itemPath>Method.cpp</itemPath>
-      <itemPath>Native_Method_Signature.cpp</itemPath>
-      <itemPath>Numeric.cpp</itemPath>
-      <itemPath>Object.cpp</itemPath>
-      <itemPath>Primitive.cpp</itemPath>
-      <itemPath>Reference.cpp</itemPath>
-      <itemPath>System.cpp</itemPath>
-      <itemPath>cni.cpp</itemPath>
-      <itemPath>hash_table.cpp</itemPath>
-      <itemPath>main.cpp</itemPath>
-      <itemPath>symbol.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Accessible.cpp</itemPath>
+      <itemPath>src/share/vm/Allocated_Object.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Array.cpp</itemPath>
+      <itemPath>src/share/coral/lang/ArrayReference.cpp</itemPath>
+      <itemPath>src/share/vm/CNIHandlerBlock.cpp</itemPath>
+      <itemPath>src/share/vm/CVM.cpp</itemPath>
+      <itemPath>src/share/vm/CallableNativeFunction.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Class.cpp</itemPath>
+      <itemPath>src/share/vm/Code.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Data_Type.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Decimal.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Double.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Field.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Float.cpp</itemPath>
+      <itemPath>src/share/vm/Heap.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Int.cpp</itemPath>
+      <itemPath>src/share/coral/lang/IntArray.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Integer.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Library.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Literal.cpp</itemPath>
+      <itemPath>src/share/vm/Memory_Manager.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Method.cpp</itemPath>
+      <itemPath>src/share/vm/Native_Method_Signature.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Numeric.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Object.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Primitive.cpp</itemPath>
+      <itemPath>src/share/vm/Reference.cpp</itemPath>
+      <itemPath>src/share/coral/lang/System.cpp</itemPath>
+      <itemPath>src/share/vm/cni.cpp</itemPath>
+      <itemPath>src/share/vm/hash_table.cpp</itemPath>
+      <itemPath>src/main.cpp</itemPath>
+      <itemPath>src/share/coral/lang/symbol.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -102,148 +102,160 @@
       <compileType>
         <ccTool>
           <commandlineTool>g++</commandlineTool>
-          <commandLine>-rdynamic</commandLine>
+          <commandLine>-rdynamic -I includes</commandLine>
         </ccTool>
         <linkerTool>
           <commandLine>-ldl</commandLine>
         </linkerTool>
       </compileType>
-      <item path="Accessible.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Accessible.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Allocated_Object.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Allocated_Object.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Array.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Array.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ArrayReference.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ArrayReference.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CNIHandlerBlock.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CNIHandlerBlock.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CVM.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CVM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CallableNativeFunction.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CallableNativeFunction.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Class.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Class.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Code.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Code.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Data_Type.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Data_Type.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Decimal.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Decimal.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Double.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Double.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Field.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Field.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Float.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Float.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Heap.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Heap.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Int.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Int.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IntArray.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IntArray.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Integer.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Integer.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Library.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Library.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Literal.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Literal.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Memory_Manager.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Memory_Manager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Method.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Method.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Native_Method_Signature.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Native_Method_Signature.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Numeric.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Numeric.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Object.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Object.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Primitive.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Primitive.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Reference.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Reference.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="System.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="System.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="WrapperGenerator.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="cni.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="cni.h" ex="false" tool="3" flavor2="0">
-      </item>
       <folder path="SourceFiles">
         <ccTool>
           <commandLine>-ldl</commandLine>
         </ccTool>
       </folder>
-      <item path="hash_table.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="hash_table.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="in.cl" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="includes/Accessible.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="symbol.cpp" ex="false" tool="1" flavor2="0">
+      <item path="includes/Allocated_Object.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="symbol.h" ex="false" tool="3" flavor2="0">
+      <item path="includes/Array.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="vs_stack.h" ex="false" tool="3" flavor2="0">
+      <item path="includes/ArrayReference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/CNIHandlerBlock.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/CVM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/CallableNativeFunction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Class.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Code.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Data_Type.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Decimal.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Double.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Field.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Float.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Heap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Int.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/IntArray.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Integer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Library.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Literal.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Memory_Manager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Method.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Native_Method_Signature.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Numeric.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Object.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Primitive.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Reference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/System.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/WrapperGenerator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/cni.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/hash_table.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/symbol.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/vs_stack.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Accessible.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Array.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/ArrayReference.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Class.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Data_Type.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Decimal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Double.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Field.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Float.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Int.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/IntArray.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Integer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Library.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Literal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Method.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Numeric.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Object.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Primitive.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/System.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/symbol.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Allocated_Object.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/CNIHandlerBlock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/CVM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/CallableNativeFunction.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/share/vm/Code.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Heap.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Memory_Manager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Native_Method_Signature.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/share/vm/Reference.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/cni.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/hash_table.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -266,137 +278,149 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Accessible.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Accessible.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Allocated_Object.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Allocated_Object.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Array.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Array.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ArrayReference.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ArrayReference.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CNIHandlerBlock.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CNIHandlerBlock.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CVM.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CVM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CallableNativeFunction.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CallableNativeFunction.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Class.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Class.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Code.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Code.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Data_Type.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Data_Type.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Decimal.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Decimal.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Double.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Double.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Field.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Field.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Float.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Float.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Heap.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Heap.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Int.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Int.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IntArray.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IntArray.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Integer.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Integer.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Library.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Library.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Literal.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Literal.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Memory_Manager.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Memory_Manager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Method.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Method.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Native_Method_Signature.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Native_Method_Signature.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Numeric.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Numeric.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Object.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Object.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Primitive.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Primitive.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Reference.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Reference.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="System.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="System.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="WrapperGenerator.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="cni.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="cni.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="hash_table.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="hash_table.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="in.cl" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="includes/Accessible.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="symbol.cpp" ex="false" tool="1" flavor2="0">
+      <item path="includes/Allocated_Object.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="symbol.h" ex="false" tool="3" flavor2="0">
+      <item path="includes/Array.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="vs_stack.h" ex="false" tool="3" flavor2="0">
+      <item path="includes/ArrayReference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/CNIHandlerBlock.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/CVM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/CallableNativeFunction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Class.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Code.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Data_Type.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Decimal.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Double.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Field.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Float.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Heap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Int.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/IntArray.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Integer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Library.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Literal.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Memory_Manager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Method.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Native_Method_Signature.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Numeric.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Object.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Primitive.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Reference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/System.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/WrapperGenerator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/cni.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/hash_table.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/symbol.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/vs_stack.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Accessible.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Array.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/ArrayReference.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Class.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Data_Type.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Decimal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Double.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Field.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Float.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Int.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/IntArray.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Integer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Library.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Literal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Method.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Numeric.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Object.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/Primitive.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/System.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/coral/lang/symbol.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Allocated_Object.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/CNIHandlerBlock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/CVM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/CallableNativeFunction.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/share/vm/Code.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Heap.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Memory_Manager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Native_Method_Signature.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/share/vm/Reference.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/cni.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/hash_table.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

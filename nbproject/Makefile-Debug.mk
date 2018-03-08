@@ -35,46 +35,46 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Accessible.o \
-	${OBJECTDIR}/Allocated_Object.o \
-	${OBJECTDIR}/Array.o \
-	${OBJECTDIR}/ArrayReference.o \
-	${OBJECTDIR}/CNIHandlerBlock.o \
-	${OBJECTDIR}/CVM.o \
-	${OBJECTDIR}/CallableNativeFunction.o \
-	${OBJECTDIR}/Class.o \
-	${OBJECTDIR}/Code.o \
-	${OBJECTDIR}/Data_Type.o \
-	${OBJECTDIR}/Decimal.o \
-	${OBJECTDIR}/Double.o \
-	${OBJECTDIR}/Field.o \
-	${OBJECTDIR}/Float.o \
-	${OBJECTDIR}/Heap.o \
-	${OBJECTDIR}/Int.o \
-	${OBJECTDIR}/IntArray.o \
-	${OBJECTDIR}/Integer.o \
-	${OBJECTDIR}/Library.o \
-	${OBJECTDIR}/Literal.o \
-	${OBJECTDIR}/Memory_Manager.o \
-	${OBJECTDIR}/Method.o \
-	${OBJECTDIR}/Native_Method_Signature.o \
-	${OBJECTDIR}/Numeric.o \
-	${OBJECTDIR}/Object.o \
-	${OBJECTDIR}/Primitive.o \
-	${OBJECTDIR}/Reference.o \
-	${OBJECTDIR}/System.o \
-	${OBJECTDIR}/cni.o \
-	${OBJECTDIR}/hash_table.o \
-	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/symbol.o
+	${OBJECTDIR}/src/main.o \
+	${OBJECTDIR}/src/share/coral/lang/Accessible.o \
+	${OBJECTDIR}/src/share/coral/lang/Array.o \
+	${OBJECTDIR}/src/share/coral/lang/ArrayReference.o \
+	${OBJECTDIR}/src/share/coral/lang/Class.o \
+	${OBJECTDIR}/src/share/coral/lang/Data_Type.o \
+	${OBJECTDIR}/src/share/coral/lang/Decimal.o \
+	${OBJECTDIR}/src/share/coral/lang/Double.o \
+	${OBJECTDIR}/src/share/coral/lang/Field.o \
+	${OBJECTDIR}/src/share/coral/lang/Float.o \
+	${OBJECTDIR}/src/share/coral/lang/Int.o \
+	${OBJECTDIR}/src/share/coral/lang/IntArray.o \
+	${OBJECTDIR}/src/share/coral/lang/Integer.o \
+	${OBJECTDIR}/src/share/coral/lang/Library.o \
+	${OBJECTDIR}/src/share/coral/lang/Literal.o \
+	${OBJECTDIR}/src/share/coral/lang/Method.o \
+	${OBJECTDIR}/src/share/coral/lang/Numeric.o \
+	${OBJECTDIR}/src/share/coral/lang/Object.o \
+	${OBJECTDIR}/src/share/coral/lang/Primitive.o \
+	${OBJECTDIR}/src/share/coral/lang/System.o \
+	${OBJECTDIR}/src/share/coral/lang/symbol.o \
+	${OBJECTDIR}/src/share/vm/Allocated_Object.o \
+	${OBJECTDIR}/src/share/vm/CNIHandlerBlock.o \
+	${OBJECTDIR}/src/share/vm/CVM.o \
+	${OBJECTDIR}/src/share/vm/CallableNativeFunction.o \
+	${OBJECTDIR}/src/share/vm/Code.o \
+	${OBJECTDIR}/src/share/vm/Heap.o \
+	${OBJECTDIR}/src/share/vm/Memory_Manager.o \
+	${OBJECTDIR}/src/share/vm/Native_Method_Signature.o \
+	${OBJECTDIR}/src/share/vm/Reference.o \
+	${OBJECTDIR}/src/share/vm/cni.o \
+	${OBJECTDIR}/src/share/vm/hash_table.o
 
 
 # C Compiler Flags
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-rdynamic
-CXXFLAGS=-rdynamic
+CCFLAGS=-rdynamic -I includes
+CXXFLAGS=-rdynamic -I includes
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -93,165 +93,165 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/coralvm: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/coralvm ${OBJECTFILES} ${LDLIBSOPTIONS} -ldl
 
-${OBJECTDIR}/Accessible.o: Accessible.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/main.o: src/main.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Accessible.o Accessible.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
 
-${OBJECTDIR}/Allocated_Object.o: Allocated_Object.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Accessible.o: src/share/coral/lang/Accessible.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Allocated_Object.o Allocated_Object.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Accessible.o src/share/coral/lang/Accessible.cpp
 
-${OBJECTDIR}/Array.o: Array.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Array.o: src/share/coral/lang/Array.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Array.o Array.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Array.o src/share/coral/lang/Array.cpp
 
-${OBJECTDIR}/ArrayReference.o: ArrayReference.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/ArrayReference.o: src/share/coral/lang/ArrayReference.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ArrayReference.o ArrayReference.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/ArrayReference.o src/share/coral/lang/ArrayReference.cpp
 
-${OBJECTDIR}/CNIHandlerBlock.o: CNIHandlerBlock.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Class.o: src/share/coral/lang/Class.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CNIHandlerBlock.o CNIHandlerBlock.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Class.o src/share/coral/lang/Class.cpp
 
-${OBJECTDIR}/CVM.o: CVM.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Data_Type.o: src/share/coral/lang/Data_Type.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CVM.o CVM.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Data_Type.o src/share/coral/lang/Data_Type.cpp
 
-${OBJECTDIR}/CallableNativeFunction.o: CallableNativeFunction.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Decimal.o: src/share/coral/lang/Decimal.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CallableNativeFunction.o CallableNativeFunction.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Decimal.o src/share/coral/lang/Decimal.cpp
 
-${OBJECTDIR}/Class.o: Class.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Double.o: src/share/coral/lang/Double.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Class.o Class.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Double.o src/share/coral/lang/Double.cpp
 
-${OBJECTDIR}/Code.o: Code.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Field.o: src/share/coral/lang/Field.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Code.o Code.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Field.o src/share/coral/lang/Field.cpp
 
-${OBJECTDIR}/Data_Type.o: Data_Type.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Float.o: src/share/coral/lang/Float.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Data_Type.o Data_Type.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Float.o src/share/coral/lang/Float.cpp
 
-${OBJECTDIR}/Decimal.o: Decimal.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Int.o: src/share/coral/lang/Int.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Decimal.o Decimal.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Int.o src/share/coral/lang/Int.cpp
 
-${OBJECTDIR}/Double.o: Double.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/IntArray.o: src/share/coral/lang/IntArray.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Double.o Double.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/IntArray.o src/share/coral/lang/IntArray.cpp
 
-${OBJECTDIR}/Field.o: Field.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Integer.o: src/share/coral/lang/Integer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Field.o Field.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Integer.o src/share/coral/lang/Integer.cpp
 
-${OBJECTDIR}/Float.o: Float.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Library.o: src/share/coral/lang/Library.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Float.o Float.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Library.o src/share/coral/lang/Library.cpp
 
-${OBJECTDIR}/Heap.o: Heap.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Literal.o: src/share/coral/lang/Literal.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Heap.o Heap.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Literal.o src/share/coral/lang/Literal.cpp
 
-${OBJECTDIR}/Int.o: Int.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Method.o: src/share/coral/lang/Method.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Int.o Int.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Method.o src/share/coral/lang/Method.cpp
 
-${OBJECTDIR}/IntArray.o: IntArray.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Numeric.o: src/share/coral/lang/Numeric.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntArray.o IntArray.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Numeric.o src/share/coral/lang/Numeric.cpp
 
-${OBJECTDIR}/Integer.o: Integer.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Object.o: src/share/coral/lang/Object.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Integer.o Integer.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Object.o src/share/coral/lang/Object.cpp
 
-${OBJECTDIR}/Library.o: Library.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/Primitive.o: src/share/coral/lang/Primitive.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Library.o Library.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/Primitive.o src/share/coral/lang/Primitive.cpp
 
-${OBJECTDIR}/Literal.o: Literal.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/System.o: src/share/coral/lang/System.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Literal.o Literal.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/System.o src/share/coral/lang/System.cpp
 
-${OBJECTDIR}/Memory_Manager.o: Memory_Manager.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/coral/lang/symbol.o: src/share/coral/lang/symbol.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/coral/lang
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Memory_Manager.o Memory_Manager.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/coral/lang/symbol.o src/share/coral/lang/symbol.cpp
 
-${OBJECTDIR}/Method.o: Method.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/Allocated_Object.o: src/share/vm/Allocated_Object.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Method.o Method.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/Allocated_Object.o src/share/vm/Allocated_Object.cpp
 
-${OBJECTDIR}/Native_Method_Signature.o: Native_Method_Signature.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/CNIHandlerBlock.o: src/share/vm/CNIHandlerBlock.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Native_Method_Signature.o Native_Method_Signature.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/CNIHandlerBlock.o src/share/vm/CNIHandlerBlock.cpp
 
-${OBJECTDIR}/Numeric.o: Numeric.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/CVM.o: src/share/vm/CVM.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Numeric.o Numeric.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/CVM.o src/share/vm/CVM.cpp
 
-${OBJECTDIR}/Object.o: Object.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/CallableNativeFunction.o: src/share/vm/CallableNativeFunction.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Object.o Object.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/CallableNativeFunction.o src/share/vm/CallableNativeFunction.cpp
 
-${OBJECTDIR}/Primitive.o: Primitive.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/Code.o: src/share/vm/Code.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Primitive.o Primitive.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/Code.o src/share/vm/Code.cpp
 
-${OBJECTDIR}/Reference.o: Reference.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/Heap.o: src/share/vm/Heap.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Reference.o Reference.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/Heap.o src/share/vm/Heap.cpp
 
-${OBJECTDIR}/System.o: System.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/Memory_Manager.o: src/share/vm/Memory_Manager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/System.o System.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/Memory_Manager.o src/share/vm/Memory_Manager.cpp
 
-${OBJECTDIR}/cni.o: cni.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/Native_Method_Signature.o: src/share/vm/Native_Method_Signature.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cni.o cni.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/Native_Method_Signature.o src/share/vm/Native_Method_Signature.cpp
 
-${OBJECTDIR}/hash_table.o: hash_table.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/Reference.o: src/share/vm/Reference.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/hash_table.o hash_table.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/Reference.o src/share/vm/Reference.cpp
 
-${OBJECTDIR}/main.o: main.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/cni.o: src/share/vm/cni.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/cni.o src/share/vm/cni.cpp
 
-${OBJECTDIR}/symbol.o: symbol.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/share/vm/hash_table.o: src/share/vm/hash_table.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/share/vm
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/symbol.o symbol.cpp
+	$(COMPILE.cc) -g -ldl -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/share/vm/hash_table.o src/share/vm/hash_table.cpp
 
 # Subprojects
 .build-subprojects:
