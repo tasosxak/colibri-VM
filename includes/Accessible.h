@@ -16,21 +16,21 @@
 
 #include <iostream>
 
+enum Acc_type {PRIVATE_ACC,PUBLIC_ACC,PROTECTED_ACC};
+
 class Accessible
 {
     public:
         Accessible();
-        Accessible(std::string ACC_FLAG);
-        Accessible(int ACC_FLAG);
+        Accessible(Acc_type ACC_FLAG);
         virtual ~Accessible();
-        int get_acc();
-        void set_acc(std::string name);
-        void set_acc(int code);
+        Acc_type get_acc();
+        void set_acc(Acc_type accessor);
 
     protected:
 
     private:
-        int ACC_FLAG;
+        Acc_type ACC_FLAG;
 };
 
 #endif /* ACCESSIBLE_H */

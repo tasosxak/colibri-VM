@@ -14,11 +14,10 @@
 #include "IntArray.h"
 #include "Int.h"
 
-IntArray::IntArray(int length,int dimension)
+IntArray::IntArray(int length,int dimension): Array(length,dimension)
 {
     this->arr = (Object**) new Int*[length];
-    this->dimension = dimension;
-    this->length = length;
+    
 }
 
 IntArray::~IntArray()
@@ -52,7 +51,7 @@ void IntArray::set_element(int index, Object* obj)
     {
 
         this->arr[index] = obj;
-
+     
     }
     else
     {
@@ -79,4 +78,18 @@ void IntArray::del_element(int index)
         exit(1);
     }
 
+}
+
+
+c_object IntArray::next(CNIEnv* env, c_object obj){
+    
+    
+    if(this->index < (this->length)){
+        
+        return env->newInt( (this->arr[index])->getValue() );
+    }
+    
+    this->index = 0;
+    return env->newObject(new Object());
+        
 }

@@ -51,8 +51,8 @@ std::string symbol::className(){
 }
 
 std::string symbol::getName(){
-    std::string str(this->name);
-    return str;
+   
+    return this->name;
 
 }
 
@@ -65,6 +65,9 @@ void symbol::setLine(int line){
     this->linecode = line;
 }
 
+void symbol::setName(std::string name){
+    this->name = name;
+}
 
 symbol::~symbol()
 {

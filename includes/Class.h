@@ -16,20 +16,22 @@
 
 #include "Accessible.h"
 #include "Object.h"
+#include "Modifier.h"
 
 class Object;
 
-class Class : public Object , public Accessible
+class Class : public Object , public Accessible , public Modifier
 {
     public:
         Class();
-        Class(std::string name, std::string ACC_FLAG,Class* supercl);
+        Class(std::string name, Acc_type ACC_FLAG,Mod_type MOD_FLAG, Class* supercl);
         Class(Class* obj);
         virtual ~Class();
         std::string className();
         Object* createInstance();
         Class* getSuperClass();
         void setSuperClass(Class* supercl);
+        
 
     protected:
 

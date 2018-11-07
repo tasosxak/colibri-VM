@@ -16,6 +16,7 @@
 
 #include "Reference.h"
 #include "Array.h"
+#include "cni.h"
 
 class ArrayReference: public Reference
 {
@@ -30,6 +31,7 @@ class ArrayReference: public Reference
 
     private:
         int dimension;
+        int index;
 
 };
 

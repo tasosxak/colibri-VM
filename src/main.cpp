@@ -12,13 +12,17 @@
  */
 
 #include "CVM.h"
+#include <string>
+#include <sstream>
 using namespace std;
 
 
-int main()
+int main(int argc, char* argv[])
 {
-
-    CVM* cvm = new CVM("in.cex");
+    std::ostringstream filename;
+    filename << argv[1];
+    
+    CVM* cvm = new CVM(filename.str());
 
     cvm->start();
 

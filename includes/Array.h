@@ -19,13 +19,13 @@
 class Array: public Data_Type
 {
     public:
-        Array();
+        Array(int length, int dimension);
         virtual ~Array();
 
         virtual Object* get_element(int index);
         virtual void set_element(int index, Object* obj);
         virtual void del_element(int index);
-
+        virtual c_object next(CNIEnv* env, c_object c_obj) = 0;
         int get_length();
         int get_dimension();
 
@@ -34,6 +34,7 @@ class Array: public Data_Type
     protected:
         Object** arr;
         int length;
+        int index;
         int dimension;
 
     private:

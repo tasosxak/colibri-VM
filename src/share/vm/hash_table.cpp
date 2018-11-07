@@ -28,13 +28,22 @@ using namespace std;
 hash_table::hash_table()
 {
     this->numSymbols = 0;
+    
+    for(int i = 0; i < 500; i++)
+        this->arr[i] = NULL;
+    
     //ctor
 }
 
 hash_table::hash_table(std::string name)
 {
-    this->name = name;
     this->numSymbols = 0;
+    
+    for(int i = 0; i < 500; i++)
+        this->arr[i] = NULL;
+    
+    this->name = name;
+    
     //ctor
 }
 
@@ -47,14 +56,16 @@ void hash_table::add(symbol* symb)
 {
     int i;
     symbol *p;
-
+    
     i=this->mkkey((symb->getName().c_str()));
     this->ids[numSymbols] = symb;
     p=this->arr[i];
     symb->NextSymbol=p;
     symb->PrevSymbol=NULL;
     if(p) p->PrevSymbol=symb;
+    
     this->arr[i]=symb;
+    
     numSymbols++;
 
 
@@ -107,8 +118,10 @@ void hash_table::clone(hash_table * hs){
 
 hash_table::hash_table(hash_table* hs){
 
- //printf(">>>>%d\n",hs->numSymbols);
- this->numSymbols = 0;
+this->numSymbols = 0;
+    
+    for(int i = 0; i < 500; i++)
+        this->arr[i] = NULL;
 
  for(int i =0; i<hs->numSymbols; i++){
 

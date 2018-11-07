@@ -16,6 +16,7 @@
 
 #include "symbol.h"
 #include "vs_stack.h"
+#include "Package.h"
 #include "cni.h"
 
 
@@ -27,12 +28,16 @@ class Object : public symbol
         virtual ~Object();
 
         virtual Object*  getClass();
-        virtual c_bool equals(CNIEnv* enc,c_object obj1, c_object obj2);
-        //Native
         int getValue();
-        virtual c_string toString(CNIEnv* env, c_object obj);
         void setClass(Object* classRef);
         static void RegisterNative(CNIEnv* env);
+        std::string module_name;
+        Package* package;
+        //Native
+        virtual c_bool equals(CNIEnv* enc,c_object obj1, c_object obj2);
+        virtual c_string toString(CNIEnv* env, c_object obj);
+        virtual c_class getClass(CNIEnv* env, c_object);
+        
         
     protected:
         int object_id;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="97">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -8,16 +8,21 @@
       <itemPath>includes/Allocated_Object.h</itemPath>
       <itemPath>includes/Array.h</itemPath>
       <itemPath>includes/ArrayReference.h</itemPath>
+      <itemPath>includes/Block.h</itemPath>
       <itemPath>includes/CNIHandlerBlock.h</itemPath>
       <itemPath>includes/CVM.h</itemPath>
       <itemPath>includes/CallableNativeFunction.h</itemPath>
       <itemPath>includes/Class.h</itemPath>
       <itemPath>includes/Code.h</itemPath>
+      <itemPath>includes/Content.h</itemPath>
       <itemPath>includes/Data_Type.h</itemPath>
       <itemPath>includes/Decimal.h</itemPath>
       <itemPath>includes/Double.h</itemPath>
+      <itemPath>includes/Error.h</itemPath>
+      <itemPath>includes/Exception.h</itemPath>
       <itemPath>includes/Field.h</itemPath>
       <itemPath>includes/Float.h</itemPath>
+      <itemPath>includes/Frame.h</itemPath>
       <itemPath>includes/Heap.h</itemPath>
       <itemPath>includes/Int.h</itemPath>
       <itemPath>includes/IntArray.h</itemPath>
@@ -26,11 +31,14 @@
       <itemPath>includes/Literal.h</itemPath>
       <itemPath>includes/Memory_Manager.h</itemPath>
       <itemPath>includes/Method.h</itemPath>
+      <itemPath>includes/Modifier.h</itemPath>
       <itemPath>includes/Native_Method_Signature.h</itemPath>
       <itemPath>includes/Numeric.h</itemPath>
       <itemPath>includes/Object.h</itemPath>
+      <itemPath>includes/Package.h</itemPath>
       <itemPath>includes/Primitive.h</itemPath>
       <itemPath>includes/Reference.h</itemPath>
+      <itemPath>includes/StopIterationException.h</itemPath>
       <itemPath>includes/System.h</itemPath>
       <itemPath>includes/WrapperGenerator.h</itemPath>
       <itemPath>includes/cni.h</itemPath>
@@ -49,16 +57,21 @@
       <itemPath>src/share/vm/Allocated_Object.cpp</itemPath>
       <itemPath>src/share/coral/lang/Array.cpp</itemPath>
       <itemPath>src/share/coral/lang/ArrayReference.cpp</itemPath>
+      <itemPath>src/share/vm/Block.cpp</itemPath>
       <itemPath>src/share/vm/CNIHandlerBlock.cpp</itemPath>
       <itemPath>src/share/vm/CVM.cpp</itemPath>
       <itemPath>src/share/vm/CallableNativeFunction.cpp</itemPath>
       <itemPath>src/share/coral/lang/Class.cpp</itemPath>
       <itemPath>src/share/vm/Code.cpp</itemPath>
+      <itemPath>src/share/vm/Content.cpp</itemPath>
       <itemPath>src/share/coral/lang/Data_Type.cpp</itemPath>
       <itemPath>src/share/coral/lang/Decimal.cpp</itemPath>
       <itemPath>src/share/coral/lang/Double.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Error.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Exception.cpp</itemPath>
       <itemPath>src/share/coral/lang/Field.cpp</itemPath>
       <itemPath>src/share/coral/lang/Float.cpp</itemPath>
+      <itemPath>src/share/vm/Frame.cpp</itemPath>
       <itemPath>src/share/vm/Heap.cpp</itemPath>
       <itemPath>src/share/coral/lang/Int.cpp</itemPath>
       <itemPath>src/share/coral/lang/IntArray.cpp</itemPath>
@@ -67,11 +80,14 @@
       <itemPath>src/share/coral/lang/Literal.cpp</itemPath>
       <itemPath>src/share/vm/Memory_Manager.cpp</itemPath>
       <itemPath>src/share/coral/lang/Method.cpp</itemPath>
+      <itemPath>src/share/coral/lang/Modifier.cpp</itemPath>
       <itemPath>src/share/vm/Native_Method_Signature.cpp</itemPath>
       <itemPath>src/share/coral/lang/Numeric.cpp</itemPath>
       <itemPath>src/share/coral/lang/Object.cpp</itemPath>
+      <itemPath>src/share/vm/Package.cpp</itemPath>
       <itemPath>src/share/coral/lang/Primitive.cpp</itemPath>
       <itemPath>src/share/vm/Reference.cpp</itemPath>
+      <itemPath>src/share/coral/lang/StopIterationException.cpp</itemPath>
       <itemPath>src/share/coral/lang/System.cpp</itemPath>
       <itemPath>src/share/vm/cni.cpp</itemPath>
       <itemPath>src/share/vm/hash_table.cpp</itemPath>
@@ -89,7 +105,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>in.cl</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -113,8 +128,6 @@
           <commandLine>-ldl</commandLine>
         </ccTool>
       </folder>
-      <item path="in.cl" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="includes/Accessible.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Allocated_Object.h" ex="false" tool="3" flavor2="0">
@@ -122,6 +135,8 @@
       <item path="includes/Array.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/ArrayReference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Block.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/CNIHandlerBlock.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -133,15 +148,23 @@
       </item>
       <item path="includes/Code.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="includes/Content.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="includes/Data_Type.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Decimal.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Double.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="includes/Error.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Exception.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="includes/Field.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Float.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Frame.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Heap.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -159,15 +182,21 @@
       </item>
       <item path="includes/Method.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="includes/Modifier.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="includes/Native_Method_Signature.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Numeric.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Object.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="includes/Package.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="includes/Primitive.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Reference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/StopIterationException.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/System.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -183,53 +212,11 @@
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/share/coral/lang/Accessible.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Array.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/ArrayReference.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Class.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Data_Type.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Decimal.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Double.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Field.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Float.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Int.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/IntArray.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Integer.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Library.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Literal.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Method.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Numeric.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Object.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Primitive.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/System.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/share/coral/lang/symbol.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/share/vm/Allocated_Object.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Block.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/share/vm/CNIHandlerBlock.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -242,6 +229,10 @@
       </item>
       <item path="src/share/vm/Code.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/share/vm/Content.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Frame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/share/vm/Heap.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/share/vm/Memory_Manager.cpp" ex="false" tool="1" flavor2="0">
@@ -250,6 +241,8 @@
             ex="false"
             tool="1"
             flavor2="0">
+      </item>
+      <item path="src/share/vm/Package.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/share/vm/Reference.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -278,8 +271,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="in.cl" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="includes/Accessible.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Allocated_Object.h" ex="false" tool="3" flavor2="0">
@@ -287,6 +278,8 @@
       <item path="includes/Array.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/ArrayReference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Block.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/CNIHandlerBlock.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -298,15 +291,23 @@
       </item>
       <item path="includes/Code.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="includes/Content.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="includes/Data_Type.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Decimal.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Double.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="includes/Error.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Exception.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="includes/Field.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Float.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/Frame.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Heap.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -324,15 +325,21 @@
       </item>
       <item path="includes/Method.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="includes/Modifier.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="includes/Native_Method_Signature.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Numeric.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Object.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="includes/Package.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="includes/Primitive.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/Reference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="includes/StopIterationException.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="includes/System.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -348,53 +355,11 @@
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/share/coral/lang/Accessible.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Array.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/ArrayReference.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Class.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Data_Type.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Decimal.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Double.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Field.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Float.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Int.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/IntArray.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Integer.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Library.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Literal.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Method.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Numeric.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Object.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/Primitive.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/share/coral/lang/System.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/share/coral/lang/symbol.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/share/vm/Allocated_Object.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Block.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/share/vm/CNIHandlerBlock.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -407,6 +372,10 @@
       </item>
       <item path="src/share/vm/Code.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/share/vm/Content.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/share/vm/Frame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/share/vm/Heap.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/share/vm/Memory_Manager.cpp" ex="false" tool="1" flavor2="0">
@@ -415,6 +384,8 @@
             ex="false"
             tool="1"
             flavor2="0">
+      </item>
+      <item path="src/share/vm/Package.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/share/vm/Reference.cpp" ex="false" tool="1" flavor2="0">
       </item>

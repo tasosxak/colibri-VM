@@ -14,9 +14,10 @@
 #include "Field.h"
 #include "Int.h"
 #include "Double.h"
+#include "Literal.h"
 #include "Reference.h"
 
-Field::Field(std::string name, std::string ACC_FLAG , Data_Type* data): Object(name),Accessible(ACC_FLAG){
+Field::Field(std::string name,Acc_type ACC_FLAG , Data_Type* data): Object(name),Accessible(ACC_FLAG){
 
     set_data(data);
 }
@@ -36,6 +37,12 @@ Field::Field(Field* field):Object(field->getName()),Accessible(field->get_acc())
     else if (className == "Double"){
 
         set_data(new Double((Double*)field->get_data()));
+    }
+    else if (className == "Literal"){
+
+        Data_Type* x = field->get_data();
+        Literal* y = (Literal*)x;
+        set_data(new Literal(y));
     }
     else if (className == "Reference"){
 

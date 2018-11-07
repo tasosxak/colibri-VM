@@ -23,6 +23,7 @@ class Literal : public Data_Type
     public:
         Literal();
         Literal(const std::string& value);
+        Literal(Literal* symb);
         virtual ~Literal();
 
         std::string getValue();
@@ -30,12 +31,13 @@ class Literal : public Data_Type
         
         std::string className();
         
-       
+        c_object next(CNIEnv* env, c_object obj);
         c_string toString(CNIEnv* env, c_object obj);
 
     protected:
 
     private:
+        int index;
         std::string value;
 
 };

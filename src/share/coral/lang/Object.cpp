@@ -38,6 +38,11 @@ Object::~Object() {
 
 }
  
+c_class Object::getClass(CNIEnv* env, c_object obj){
+    
+    return env->GetObjectClass(obj);
+}
+ 
 c_bool Object::equals(CNIEnv* env, c_object obj1, c_object obj2){
     
     

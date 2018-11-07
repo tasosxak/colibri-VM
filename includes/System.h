@@ -34,6 +34,7 @@ class System
         static void init();
         static  /*std::map<std::string, CallableNativeFunction<void>>*/ hash_table* NATIVE_LIBRARIES;
         static void print(CNIEnv* env,c_object obj);
+        static void read(CNIEnv* env, c_int ivar);
     protected:
 
     private:

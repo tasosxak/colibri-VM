@@ -78,3 +78,9 @@ Reference::~Reference()
     //dtor
 }
 
+c_string Reference::toString(CNIEnv* env, c_object obj){
+    
+    return this->pointer->toString(env,obj);
+    
+
+}

@@ -12,11 +12,13 @@
  */
 
 #include "Method.h"
+#include "hashtable.h"
 
-Method::Method(std::string name,std::string ACC_FLAG, std::string RTYPE):Object(name),Accessible(ACC_FLAG)
+Method::Method(std::string name,Acc_type ACC_FLAG,Mod_type MOD_FLAG, std::string RTYPE):Object(name),Accessible(ACC_FLAG),Modifier(MOD_FLAG)
 {
 
     set_rtype(RTYPE);
+    this->mht = new hash_table();
     //this->args = new std::vector<std::string*>();
 }
 

@@ -18,7 +18,7 @@ Class::Class()
     //ctor
 }
 
-Class::Class(std::string name,std::string ACC_FLAG,Class* supercl):Object(name),Accessible(ACC_FLAG){
+Class::Class(std::string name,Acc_type ACC_FLAG,Mod_type MOD_FLAG,Class* supercl):Object(name),Accessible(ACC_FLAG),Modifier(MOD_FLAG){
 
 this->superclass = supercl;
 
@@ -38,7 +38,7 @@ Object* Class::createInstance(){
     Class* supercl;
 
     Object* x = new Object();
-    x->mht = new hash_table(this->mht);
+    x->mht = new hash_table(this->mht); //this is not fine 
     x->setClass(this);
 
     //Copy the fields of superclasses

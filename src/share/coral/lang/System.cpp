@@ -12,9 +12,9 @@
  */
 
 #include "System.h"
+#include <iostream>
 
-
-hash_table* System::NATIVE_LIBRARIES;
+hash_table* System::NATIVE_LIBRARIES= NULL;
 
 System::System()
 {
@@ -60,8 +60,15 @@ Native_Method_Signature* System::call_native_method(std::string libname, std::st
 
 void System::print(CNIEnv* env,c_object obj){
     
-    cout<<env->GetString(obj);
+    cout<<env->GetString((c_string) obj);
 }
 
+void System::read(CNIEnv* env, c_int ivar){
+    
+    int val;
+    std::cin>>val;
+    env->SetIntVar(ivar,val);
+    return;
+}
 
 

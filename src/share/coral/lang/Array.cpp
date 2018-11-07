@@ -13,8 +13,11 @@
 
 #include "Array.h"
 
-Array::Array()
+Array::Array(int length, int dimension)
 {
+    this->index = 0;
+    this->dimension = dimension;
+    this->length = length;
     //ctor
 }
 

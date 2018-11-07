@@ -17,6 +17,9 @@
 #include "Int.h"
 #include "CNIHandlerBlock.h"
 #include "Field.h"
+#include "Class.h"
+#include "Double.h"
+#include "Float.h"
 
 c_int CNINativeInterface::CNI_get_version() {
 
@@ -35,6 +38,13 @@ c_string CNINativeInterface::CNI_newString(std::string str) {
 
 }
 
+c_object CNINativeInterface::CNI_newObject(Object* obj) {
+
+    c_object x = new _c_object();
+    CNIHandlerBlock::addoop(x, obj);
+    return x;
+
+}
 c_int CNINativeInterface::CNI_newInt(int num) {
 
 
@@ -45,7 +55,37 @@ c_int CNINativeInterface::CNI_newInt(int num) {
 
 }
 
-c_string CNINativeInterface::CNI_IntToString(c_object obj) {
+c_double CNINativeInterface::CNI_newDouble(double dbl) {
+
+
+    Object * coral_double = (Object *) new Double(dbl);
+    c_double x = new _c_double();
+    CNIHandlerBlock::addoop(x, coral_double);
+    return x;
+
+}
+
+c_float CNINativeInterface::CNI_newFloat(float fl) {
+
+
+    Object * coral_float = (Object *) new Float(fl);
+    c_float x = new _c_float();
+    CNIHandlerBlock::addoop(x, coral_float);
+    return x;
+
+}
+
+c_void CNINativeInterface::CNI_newVoid() {
+
+
+    Object * coral_void = new Object();
+    c_void x = new _c_void();
+    CNIHandlerBlock::addoop(x, coral_void);
+    return x;
+
+}
+
+c_string CNINativeInterface::CNI_IntToString(c_int obj) {
 
     Int* rs = (Int*) CNIHandlerBlock::resolve(obj);
     Object * coral_string;
@@ -75,14 +115,52 @@ int CNINativeInterface::CNI_IntField(c_field field) {
 
 }
 
-std::string CNINativeInterface::CNI_GetString(c_object obj) {
+std::string CNINativeInterface::CNI_GetString(c_string str) {
 
 
-    Literal* lit = (Literal*) CNIHandlerBlock::resolve(obj);
+    Literal* lit = (Literal*) CNIHandlerBlock::resolve(str);
 
     return lit->getValue();
 
 }
+
+int CNINativeInterface::CNI_GetInt(c_int num) {
+
+
+    Int* intt = (Int*) CNIHandlerBlock::resolve(num);
+
+    return intt->getValue();
+
+}
+
+double CNINativeInterface::CNI_GetDouble(c_double dbl) {
+
+
+    Double* doublee = (Double*) CNIHandlerBlock::resolve(dbl);
+
+    return doublee->getValue();
+
+}
+
+float CNINativeInterface::CNI_GetFloat(c_float fl) {
+
+
+    Float* floatt = (Float*) CNIHandlerBlock::resolve(fl);
+
+    return floatt->getValue();
+
+}
+
+
+bool CNINativeInterface::CNI_GetBool(c_bool bl) {
+
+
+    Int* booll = (Int*) CNIHandlerBlock::resolve(bl);
+
+    return booll->getValue() == 1;
+
+}
+
 
 c_field CNINativeInterface::CNI_GetField(c_object obj, std::string fieldname) {
 
@@ -94,6 +172,25 @@ c_field CNINativeInterface::CNI_GetField(c_object obj, std::string fieldname) {
     CNIHandlerBlock::addoop(cf, field);
 
     return cf;
+}
+
+void CNINativeInterface::CNI_SetIntVar(c_int obj, int val){
+    
+    std::cout<<"here";
+    Int* ob = (Int*) CNIHandlerBlock::resolve(obj);
+    std::cout<<"near";
+    ob->setValue(val);
+    std::cout<<"bear";
+    return;
+}
+c_class CNINativeInterface::CNI_GetObjectClass(c_object obj) {
+
+    Object* ob = (Object*) CNIHandlerBlock::resolve(obj);
+    Class* cl = (Class*) ob->getClass();
+    c_class cc = new _c_class();
+    CNIHandlerBlock::addoop(cc, cl);
+
+    return cc;
 }
 
 /*

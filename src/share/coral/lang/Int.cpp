@@ -56,7 +56,7 @@ std::string Int::className(){
 
 c_string Int::toString(CNIEnv* env, c_object obj){
     
-    return env->IntToString(obj);
+    return env->IntToString((c_int) obj);
     
 
 }

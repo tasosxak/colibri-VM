@@ -33,7 +33,7 @@ class vs_stack
     private:
         int counter;
         int LENGTH_ST;
-        X* arr[65000];
+        X* arr[6500];
 };
 
 
@@ -43,7 +43,7 @@ template <typename X>
 vs_stack<X>::vs_stack()
 {
     this->counter = -1;
-    this->LENGTH_ST = 65000;
+    this->LENGTH_ST = 6500;
 }
 
 
@@ -52,10 +52,10 @@ vs_stack<X>::vs_stack()
 template <class X>
 template <typename Y>
  void vs_stack<X>:: push(Y symb){
-
+    
     if(counter < LENGTH_ST -1 ){
 
-        this->arr[++counter] = symb;
+        this->arr[++counter] = (X*)symb;
 
     }
 }

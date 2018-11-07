@@ -29,6 +29,7 @@ class symbol
         virtual ~symbol();
 
         std::string getName();
+        void setName(std::string);
         int getLine();
 
         void setLine(int line);
@@ -39,6 +40,7 @@ class symbol
         symbol *NextSymbol;
         symbol *PrevSymbol;
         hash_table *mht;
+        
 
     protected:
         std::string name;

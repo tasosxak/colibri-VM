@@ -13,8 +13,8 @@
 
 #include "Literal.h"
 #include <string>
-
-
+#include <sstream>
+#include "StopIterationException.h"
 
 Literal::Literal()
 {
@@ -29,13 +29,40 @@ Literal::~Literal()
 
 Literal::Literal(const std::string& value):Data_Type(){
 
+    this->index = 0;
     this->value =value;
+}
+
+Literal::Literal(Literal* symb){
+
+  //this->name = symb->getName();
+  this->linecode = symb->getLine();
+  setValue(symb->getValue());
+
 }
 
 std::string Literal::getValue(){
 
     return this->value;
 }
+
+c_object Literal::next(CNIEnv* env, c_object obj){
+    
+    std::string st;
+    std::stringstream sst;
+    
+    if(this->index < (this->value).length()){
+        
+        sst<<(this->value).at(this->index++);
+        sst >> st;
+        return env->newString( st );
+    }
+    
+    this->index = 0;
+    return env->newObject(new StopIterationException());
+        
+}
+
 
 std::string Literal::className(){
 

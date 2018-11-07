@@ -22,7 +22,7 @@
 class Field : public Accessible, public Object
 {
     public:
-        Field(std::string name, std::string ACC_FLAG , Data_Type* data);
+        Field(std::string name, Acc_type ACC_FLAG , Data_Type* data);
         Field(Field* field);
         virtual std::string className();
         virtual ~Field();

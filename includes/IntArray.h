@@ -25,7 +25,7 @@ class IntArray : public Array
         Object* get_element(int index);
         void set_element(int index, Object* obj);
         void del_element(int index);
-
+        c_object next(CNIEnv* env, c_object c_obj);
 
     protected:
 

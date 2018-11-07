@@ -30,7 +30,7 @@ class Reference: public Data_Type
 
         std::string getName(); //returns the name of reference
         std::string className();
-
+        c_string toString(CNIEnv* env, c_object obj);
         Class* getDynamicDef(); //returns the class of object
         Class* getStaticDef();
         Object* getPointer();
