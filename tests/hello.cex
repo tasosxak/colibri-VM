@@ -80,13 +80,8 @@ virtual V main();
 	label NAME=st:
 	end_label
 	iload_ bel
-	#i2s
-	#print
 	invoke_static outstream.print259
 	pop
-	#iload_ i
-	#iconst 1
-	#isub
 	jmp forr
 	label NAME=ex:
 	end_label
