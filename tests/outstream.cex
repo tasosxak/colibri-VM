@@ -1,0 +1,9 @@
+# filename: outstream.cex
+# version: 0.1
+# test: 1
+# description: none
+# date: 14/11/2018
+# author: Anastasios Temperekidis
+
+
+native V print259(I integer);

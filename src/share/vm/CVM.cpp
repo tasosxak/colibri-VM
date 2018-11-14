@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   CVM.cpp
  * Author: tasosxak
- * 
+ *
  * Created on February 11, 2018, 6:37 PM
  */
 
@@ -72,6 +72,12 @@ int CVM::start() {
     return 0;
 }
 
+/*
+* This function resolves the accessors
+* param &acc: The accessor's value of corresponding string
+* param accname: The type of accessor as string
+*/
+
 void accessor_resolver(Acc_type& acc, std::string accname) {
 
     if (accname == "public")
@@ -83,6 +89,12 @@ void accessor_resolver(Acc_type& acc, std::string accname) {
 
     return;
 }
+
+/*
+* This function resolves the modifiers
+* param &mod: modifier's value of corresponding string
+* param accname: The type modifier as string
+*/
 
 void modifier_resolver(Mod_type& mod, std::string modname) {
 
@@ -96,36 +108,46 @@ void modifier_resolver(Mod_type& mod, std::string modname) {
     return;
 }
 
+
+/*
+* This function analyses the arguments of a bytecode function. Splits the argument's line and
+* finds the types and the number of arguments.
+* param *meth: The bytecode method
+* param &args : Argument line
+*/
+
 void CVM::method_arg_analyzer(Method* meth, const std::string& args) {
 
     int num_params = 0;
-    
-    
+
+
     stringstream stream(args);
     std::string arg;
-   
-    
+
+
     while (getline(stream, arg, ',')) {
-        
+
         std::vector<std::string> tokens;
-      
+
         ++num_params;
-        
-        
+
+
         if (arg.length()== 0)
             break;
-        
+
         split(arg, tokens);
-        
+
         (meth->args).push_back(std::string(tokens[0]));
         (meth->args_names).push_back(std::string(tokens[1]));
-        
+
     }
-    
+
     meth->num_params = num_params;
-    
+
 
 }
+
+
 
 template <class Container>
 void CVM::split(const std::string& str, Container& cont) {
@@ -134,6 +156,7 @@ void CVM::split(const std::string& str, Container& cont) {
             std::istream_iterator<std::string>(),
             std::back_inserter(cont));
 }
+
 
 std::string trim(const std::string &s) {
     std::string::const_iterator it = s.begin();
@@ -146,6 +169,7 @@ std::string trim(const std::string &s) {
 
     return std::string(it, rit.base());
 }
+
 
 std::vector<std::string> dot_splitter(std::string path) {
 
@@ -162,8 +186,9 @@ std::vector<std::string> dot_splitter(std::string path) {
 }
 
 /*
-Loader loads the program, push the code into the stack
- */
+* Loader loads the program, creates new package with the bytecode
+* param filename: the filename of bytecode
+*/
 Package* CVM::load(string filename) {
 
 
@@ -183,15 +208,6 @@ Package* CVM::load(string filename) {
         cout << "CODE: " << line << endl;
 #endif
 
-        /*if (std::regex_search(line, tokens, std::regex("use NAME=(.*)"))) {
-
-            // eoc++;
-            Loader(std::string(tokens[1]) + ".cex");
-
-            continue;
-
-        }*/
-
         pack->cn.__add__(new Code(line));
         ++eoc;
 
@@ -204,11 +220,11 @@ Package* CVM::load(string filename) {
     return pack;
 }
 
+
 /*
-
-Compiler compiles the program
-
- */
+* Compiler compiles the package
+* param *package: The loaded package.
+*/
 Package* CVM::compile(Package* package) {
 
 
@@ -232,8 +248,8 @@ Package* CVM::compile(Package* package) {
 
         cur_pkg = (Package*) PKG_STACK.see(PKG_STACK.esp()); //current package
         cur_sb = cur_pkg->mht; //current symbol table
-        
-        
+
+
         while (cur_pkg->cn.__has_next__()) {
 
             clinecode = ((Code *) cur_pkg->cn.__next__()); //get code object
@@ -252,11 +268,11 @@ Package* CVM::compile(Package* package) {
 
             }*/
             /*
-             * Comments 
+             * Comments
              * Example: //this is a comment
              */
             if (std::regex_search(linecode, tokens, std::regex("#.*"))) {
-                //++ic; 
+                //++ic;
                 continue;
             }
                 /*
@@ -336,7 +352,7 @@ Package* CVM::compile(Package* package) {
             else if (std::regex_match(linecode, std::regex("end_func"))) {
                 in_func = false;
                 cur_func = NULL;
-                cp = -1;
+                cp = 0;
 
             }                /*
              * Method Definition
@@ -379,7 +395,7 @@ Package* CVM::compile(Package* package) {
 
                     method->native = true;
                     struct CNIEnv* env;
-                    if (access((std::string(getenv("HOME")) + "/colibri/native/" + method->module_name + "/" + method->class_name + "/" + "libwrapper_" + method->module_name + "_" + method->class_name + "_" + method->getName() + method->get_rtype() + ".so").c_str(), F_OK) == -1) {
+                    if (access((std::string(getenv("HOME")) + "/colibri-VM/native/" + method->module_name + "/" + method->class_name + "/" + "libwrapper_" + method->module_name + "_" + method->class_name + "_" + method->getName() + method->get_rtype() + ".so").c_str(), F_OK) == -1) {
                         WrapperGenerator::generate_virtual(env, method);
                         WrapperGenerator::clean(method->module_name + "/" + method->class_name);
                     }
@@ -414,7 +430,7 @@ Package* CVM::compile(Package* package) {
                     func->native = true;
                     struct CNIEnv* env;
 
-                    if (access((std::string(getenv("HOME")) + "/colibri/native/" + func->module_name + "/" + "libwrapper_" + func->module_name + "_" + func->getName() + func->get_rtype() + ".so").c_str(), F_OK) == -1) {
+                    if (access((std::string(getenv("HOME")) + "/colibri-VM/native/" + func->module_name + "/" + "libwrapper_" + func->module_name + "_" + func->getName() + func->get_rtype() + ".so").c_str(), F_OK) == -1) {
                         WrapperGenerator::generate_static(env, func);
                         WrapperGenerator::clean(func->module_name);
                     }
@@ -431,11 +447,11 @@ Package* CVM::compile(Package* package) {
 
                 //---- LABEL INITIALIZATION FOR LOOPS,IFS ---//
                 symbol* label = new symbol(tokens[1]);
-                
+
                 label->setLine(cp++);
                 cur_func->mht->add(label);
                 cur_func->cn.__add__(clinecode);
-                
+
                 }
                 /*
                  * Try Definition
@@ -560,23 +576,23 @@ Package* CVM::compile(Package* package) {
 
 
                 Package* new_pkg = compile(load(tokens[1]));
-                
+
                 if (new_pkg != NULL) {
 
                     cur_sb->add(new_pkg);
-                   
+
                 }else {
-                    
+
                     std::cout<<"Error: Package "<<tokens[1]<<" not found."<<std::endl;
                 }
 
                 //std::cout<<"Loaded:"<<new_pkg->getName()<<std::endl;
-                
-                
+
+
             } else {
 
                 if (cur_func != NULL){
-                    
+
                     cur_func->cn.__add__(clinecode);
                     cp++;
                 }
@@ -622,11 +638,11 @@ Object* CVM::__pkg_id_load__(std::string id) {
     cur_sb = ((symbol*) this->PKG_STACK.see(this->PKG_STACK.esp()))->mht;
 
     for (int i = 0; i < path.size(); i++) {
-  
+
         symb = (cur_sb)->lookfor(path[i]);
 
         if (symb == NULL) {
-           
+
             if ((((Frame*) (CALL_STACK.see(CALL_STACK.esp())))->ct == METHOD) && first_time) {
 
                 cur_sb = ((symbol*) this->PKG_STACK.see(this->PKG_STACK.esp() - 1))->mht;
@@ -637,14 +653,14 @@ Object* CVM::__pkg_id_load__(std::string id) {
             }
 
         } else {
-           
+
             cur_sb = symb->mht;
         }
 
     }
 
     /*for(int i = this->PKG_STACK->esp(); i>=0;){
-        
+
         ca = (symbol*) this->PKG_STACK->see(this->PKG_STACK->esp());
         sb = (symbol*) cs->mht->lookfor(id);
         if(sb != NULL){
@@ -654,9 +670,9 @@ Object* CVM::__pkg_id_load__(std::string id) {
         while( k<=i && this->PKG_STACK->see(this->PKG_STACK->esp()) == this->PKG_STACK->see(this->PKG_STACK->esp() - k)){
             k++;
         }
-        
+
         i-= k;
-        
+
     }*/
 
     return (Object*) symb;
@@ -664,7 +680,7 @@ Object* CVM::__pkg_id_load__(std::string id) {
 
 int CVM::execute() {
 
-    CNIHandlerBlock::init(); // Initialization 
+    CNIHandlerBlock::init(); // Initialization
     System::init();
     struct CNIEnv env;
     //Object::RegisterNative(&env);
@@ -735,7 +751,7 @@ int CVM::execute() {
 
 
             if (p == "istore") {
-                
+
                 // Integer
                 // istore ivar
 
@@ -759,7 +775,7 @@ int CVM::execute() {
 
 
             } else if (p == "dstore") {
-                
+
                 // Double
                 // dstore dvar
 
@@ -782,7 +798,7 @@ int CVM::execute() {
                 }
 
             } else if (p == "fstore") {
-                
+
                 // Float
                 // fstore dvar
 
@@ -805,7 +821,7 @@ int CVM::execute() {
                 }
 
             } else if (p == "rstore") {
-                
+
                 // Object
                 // rstore objref
 
@@ -826,19 +842,19 @@ int CVM::execute() {
 
 
             } else if (p == "iastore") {
-                
-                
+
+
                 //index
                 //value
                 //iastore arref
-                
+
                 p1 = tokens[1];
-                
+
                 s = __pkg_id_load__(p1);
-                
-                
+
+
                 if (s != NULL) {
-                    
+
                     Int* value = (Int*) (cf->DATA_STACK)->pop();
                     int index = ((Int*) (cf->DATA_STACK)->pop())->getValue();
 
@@ -850,8 +866,8 @@ int CVM::execute() {
                     exit(0);
 
                 }
-                
-                
+
+
 
             } else if (p == "istore_") {
                 // istore_ id
@@ -908,11 +924,13 @@ int CVM::execute() {
                 // rstore_ index
 
                 p1 = tokens[1];
-                Object* obj = (Object*) (cf->DATA_STACK)->pop();
+
+                Object* obj = (Object*) ((cf->DATA_STACK)->pop());
 
                 ((Reference*) (cf->__load__(p1)))->setPointer(obj);
+
                 ((Reference*) (cf->__load__(p1)))->setStaticDef((Class*) obj->getClass());
-                
+
                 /*if (stoi(p1) > 0) {
 
                     ((Reference*) (st.see(ebp - stoi(p1) - 1)))->setPointer(obj);
@@ -1062,7 +1080,7 @@ int CVM::execute() {
                 }
 
 /*PEN*/         } else if (p == "iaload") {
-                
+
                 //index
                 // iaload arref
 
@@ -1072,12 +1090,12 @@ int CVM::execute() {
                 p1 = tokens[1];
 
                 if (s = __pkg_id_load__(p1)) {
-                    
+
                     index = ((Int*) (cf->DATA_STACK)->pop())->getValue();
-                    
+
                     (cf->DATA_STACK)->push(new Int(  ( (Int*)(((IntArray*) (((Field*) s)->get_data()))->get_element(index) ))->getValue()  ));
                 }
-                
+
             }
 
             else if (p == "ivar") {
@@ -1114,7 +1132,7 @@ int CVM::execute() {
                 Reference* fref = new Reference();
                 fref->setName(p1);
                 fref->setPointer(fl);
-                
+
                 cf->__def_var__(fref);
 
             } else if (p == "rvar") {
@@ -1141,7 +1159,7 @@ int CVM::execute() {
                     Reference* sref = new Reference();
                     sref->setName(tokens[1]);
                     sref->setPointer(str);
-                
+
                     cf->__def_var__(sref);
                 }
 
@@ -1167,7 +1185,7 @@ int CVM::execute() {
             } else if (p == "rconst_null") {
                 // rconst_null
                 p1 = tokens[1];
-                
+
                 (cf->DATA_STACK)->push(new Object()); //must be new Null();
 
 
@@ -1458,6 +1476,7 @@ int CVM::execute() {
                 if (f->ct == METHOD) {
 
                     PKG_STACK.pop();
+
                 } else if (f->ct == FUNCTION) {
 
                     //Nothing
@@ -1472,10 +1491,10 @@ int CVM::execute() {
 
                 p1 = tokens[1];
                 y = (Class *) (cf->__load__(p1));
-                
+
                 if (y == NULL)
                     y = (Class *) __pkg_id_load__(p1);
-                
+
                 if (y != NULL) {
                     if (y->get_mod() == ABSTRACT_MOD) {
 
@@ -1489,7 +1508,7 @@ int CVM::execute() {
 
                 }
                 else {
-                    
+
                     cout << "Undefined class";
                     exit(1);
                 }
@@ -1559,12 +1578,12 @@ int CVM::execute() {
                     PKG_STACK.push((symbol*) cclass);
 
                     Reference * params[y->num_params];
-                    
-                    
+
+
                     for (int i = y->num_params; i > 0; i--) {
-                        
+
                         Reference* rpar = new Reference();
-                        
+
                         rpar->setPointer((Object*) cf->DATA_STACK->pop());
                         rpar->setName(y->args_names[i - 1]);
                         params[i - 1] = rpar;
@@ -1599,7 +1618,7 @@ int CVM::execute() {
 
                     int prev_top = CNIHandlerBlock::top;
                     struct CNIEnv env;
-                    void* handle = dlopen((std::string(getenv("HOME")) + "/colibri/native/" + y->module_name + "/" + y->class_name + "/" + "libwrapper_" + y->module_name + "_" + y->class_name + "_" + y->getName() + y->get_rtype() + ".so").c_str(), RTLD_LAZY);
+                    void* handle = dlopen((std::string(getenv("HOME")) + "/colibri-VM/native/" + y->module_name + "/" + y->class_name + "/" + "libwrapper_" + y->module_name + "_" + y->class_name + "_" + y->getName() + y->get_rtype() + ".so").c_str(), RTLD_LAZY);
 
                     if (!handle) {
 
@@ -1744,12 +1763,12 @@ int CVM::execute() {
                      Reference * params[x->num_params];
 
                     for (int i = x->num_params; i > 0; i--) {
-                        
+
                         Reference* rpar = new Reference();
-                        
+
                         rpar->setPointer((Object*) cf->DATA_STACK->pop());
                         rpar->setName(x->args_names[i - 1]);
-                        
+
                         params[i - 1] = rpar;
                     }
 
@@ -1782,7 +1801,7 @@ int CVM::execute() {
 
                     int prev_top = CNIHandlerBlock::top;
                     struct CNIEnv env;
-                    void* handle = dlopen((std::string(getenv("HOME")) + "/colibri/native/" + x->module_name + "/libwrapper_" + x->module_name + "_" + x->getName() + x->get_rtype() + ".so").c_str(), RTLD_LAZY);
+                    void* handle = dlopen((std::string(getenv("HOME")) + "/colibri-VM/native/" + x->module_name + "/libwrapper_" + x->module_name + "_" + x->getName() + x->get_rtype() + ".so").c_str(), RTLD_LAZY);
 
                     if (!handle) {
 
@@ -1868,12 +1887,12 @@ int CVM::execute() {
                             (cf->DATA_STACK)->push((Object*) (((Reference*) f->get_data())->getPointer()));
                         }
                     }
-                
+
 
             } else if (p == "putfield") {
 
                 //value
-                //objectref    
+                //objectref
                 //putfield fieldname
 
                 p1 = tokens[1];
@@ -1978,8 +1997,8 @@ int CVM::execute() {
 
                 if (res == 0)
                     cf->jump_to(p1);
-                
-                    
+
+
                 continue;
 
             } else if (p == "ifnotzero") {
@@ -1993,7 +2012,7 @@ int CVM::execute() {
 
                 if (res != 0)
                     cf->jump_to(p1);
-               
+
                 continue;
 
             } else if (p == "ifeq") {
@@ -2142,7 +2161,7 @@ int CVM::execute() {
                 continue;
 
 
-            } 
+            }
             else if (p == "label") {
 
                 //label
@@ -2175,9 +2194,9 @@ int CVM::execute() {
                 if (p == "I") {
 
                     ar = new IntArray(length, 1);
-                    
-                } 
-                
+
+                }
+
                 /*else if (p == "D") {
                     //For double;
                 } else {
@@ -2196,10 +2215,10 @@ int CVM::execute() {
 
 
                 }*/
-                
+
                 cf->DATA_STACK->push(ar);
 
-                
+
             }
             else if (p == "nl") {
 

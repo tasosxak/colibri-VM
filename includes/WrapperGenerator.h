@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   WrapperGenerator.h
  * Author: tasosxak
  *
@@ -27,7 +27,7 @@ class WrapperGenerator {
 public:
 
     static std::vector<std::string> wrappers;
-    
+
     virtual ~WrapperGenerator();
 
     static void generate_virtual(CNIEnv* env, Method* meth) {
@@ -36,7 +36,7 @@ public:
         std::string filename = name + ".cpp";
         char* homepath = getenv("HOME");
 
-        std::ofstream outputFile( std::string(homepath) + "/colibri/native/" + meth->module_name +"/" + meth->class_name + filename);
+        std::ofstream outputFile( std::string(homepath) + "/colibri-VM/native/" + meth->module_name +"/" + meth->class_name + filename);
 
 
         outputFile << "#include \"cni.h\"\n";
@@ -55,22 +55,22 @@ public:
 
         std::string type;
         type = "Object";
-        
+
         outputFile << "\t" + type +"* par" + std::to_string(0) + " = " + "("+ type +"*) " + "stk->pop();\n";
-        
+
         for (int i = 1; i < meth->num_params; i++) {
-            
-            
-            
+
+
+
             outputFile << "\t" + type  +"* par" + std::to_string(i) + " = " + "("+ type +"*) " + "stk->pop();\n";
-        
+
         }
-        
+
         outputFile << "\n";
         outputFile << "\t//Handle\n";
 
 
-        
+
 
         for (int i = 0; i < meth->num_params; i++) {
 
@@ -115,7 +115,7 @@ public:
 
         if(type != "void")
              outputFile << "\t" + type + " ret = ";
-                
+
         outputFile << "\t" + meth->module_name + "_" + meth->getName() + "(env ";
 
         for (int i = 0; i < meth->num_params; i++) {
@@ -135,34 +135,34 @@ public:
 
         outputFile.close();
 
-        const std::string ex_command = "g++ -fPIC -I  ~/colibri/includes -o ~/colibri/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".o" + " -c " + "~/colibri/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".cpp";
+        const std::string ex_command = "g++ -fPIC -I  ~/colibri-VM/includes -o ~/colibri-VM/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".o" + " -c " + "~/colibri-VM/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".cpp";
         //std::cout << ex_command.c_str() << endl;
         system(ex_command.c_str());
-        system(("g++ -shared ~/colibri/src/share/coral/lang/Field.cpp "\
-                "~/colibri/src/share/coral/lang/Class.cpp "\
-                "~/colibri/src/share/coral/lang/Literal.cpp "\
-                "~/colibri/src/share/vm/cni.cpp "\
-                "~/colibri/src/share/coral/lang/Integer.cpp "
-                "~/colibri/src/share/coral/lang/Data_Type.cpp "\
-                "~/colibri/src/share/coral/lang/Numeric.cpp "
-                "~/colibri/src/share/coral/lang/Primitive.cpp "
-                "~/colibri/src/share/coral/lang/symbol.cpp "\
-                "~/colibri/src/share/coral/lang/Object.cpp "\
-                "~/colibri/src/share/coral/lang/Int.cpp "
-                "~/colibri/src/share/vm/CNIHandlerBlock.cpp "\
-                " -I  ~/colibri/includes -fPIC -o ~/colibri/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".so " + "~/colibri/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" +meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".cpp").c_str());
+        system(("g++ -shared ~/colibri-VM/src/share/coral/lang/Field.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Class.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Literal.cpp "\
+                "~/colibri-VM/src/share/vm/cni.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Integer.cpp "
+                "~/colibri-VM/src/share/coral/lang/Data_Type.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Numeric.cpp "
+                "~/colibri-VM/src/share/coral/lang/Primitive.cpp "
+                "~/colibri-VM/src/share/coral/lang/symbol.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Object.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Int.cpp "
+                "~/colibri-VM/src/share/vm/CNIHandlerBlock.cpp "\
+                " -I  ~/colibri-VM/includes -fPIC -o ~/colibri-VM/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".so " + "~/colibri-VM/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" +meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".cpp").c_str());
         wrappers.push_back(name);
-        
+
 
     }
-    
-    
+
+
     static void generate_static(CNIEnv* env, Method* meth) {
 
         std::string name = "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype();
         std::string filename = name + ".cpp";
         char* homepath = getenv("HOME");
-        std::ofstream outputFile(std::string(homepath) + "/colibri/native/" + meth->module_name + "/" + filename);
+        std::ofstream outputFile(std::string(homepath) + "/colibri-VM/native/" + meth->module_name + "/" + filename);
 
 
         outputFile << "#include \"cni.h\"\n";
@@ -212,7 +212,7 @@ public:
 
         outputFile << "\n";
         outputFile << "\t//Return\n";
-        
+
         type = meth->get_rtype();
 
         if (type == "R")
@@ -233,7 +233,7 @@ public:
 
         if(type != "void")
              outputFile << "\t" + type + " ret = ";
-                
+
         outputFile <<  meth->module_name + "_" + meth->getName() + "(env ";
 
         for (int i = 0; i < meth->num_params; i++) {
@@ -249,50 +249,50 @@ public:
 
 
         }
-         
+
         outputFile << "\n}";
 
         outputFile.close();
 
-        const std::string ex_command = "g++ -fPIC -I  ~/colibri/includes -o ~/colibri/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".o" + " -c " + "~/colibri/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".cpp";
+        const std::string ex_command = "g++ -fPIC -I  ~/colibri-VM/includes -o ~/colibri-VM/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".o" + " -c " + "~/colibri-VM/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".cpp";
         //std::cout << ex_command.c_str() << endl;
         system(ex_command.c_str());
-        system(("g++ -shared ~/colibri/src/share/coral/lang/Field.cpp "\
-                "~/colibri/src/share/coral/lang/Class.cpp "\
-                "~/colibri/src/share/coral/lang/Literal.cpp "\
-                "~/colibri/src/share/vm/cni.cpp "\
-                "~/colibri/src/share/coral/lang/Integer.cpp "
-                "~/colibri/src/share/coral/lang/Data_Type.cpp "\
-                "~/colibri/src/share/coral/lang/Numeric.cpp "
-                "~/colibri/src/share/coral/lang/Primitive.cpp "
-                "~/colibri/src/share/coral/lang/symbol.cpp "\
-                "~/colibri/src/share/coral/lang/Object.cpp "\
-                "~/colibri/src/share/coral/lang/Int.cpp "
-                "~/colibri/src/share/vm/CNIHandlerBlock.cpp "\
-                "~/colibri/src/share/coral/lang/System.cpp "\
-                "~/colibri/src/share/vm/hash_table.cpp "\
-                "~/colibri/src/share/coral/lang/Library.cpp "\
-                "~/colibri/src/share/vm/CallableNativeFunction.cpp "
-                " -I  ~/colibri/includes -fPIC -o ~/colibri/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".so " + "~/colibri/native/" + meth->module_name + "/" + "libwrapper_" + (meth->module_name) + "_" + meth->getName() + meth->get_rtype() + ".cpp").c_str());
+        system(("g++ -shared ~/colibri-VM/src/share/coral/lang/Field.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Class.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Literal.cpp "\
+                "~/colibri-VM/src/share/vm/cni.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Integer.cpp "
+                "~/colibri-VM/src/share/coral/lang/Data_Type.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Numeric.cpp "
+                "~/colibri-VM/src/share/coral/lang/Primitive.cpp "
+                "~/colibri-VM/src/share/coral/lang/symbol.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Object.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Int.cpp "
+                "~/colibri-VM/src/share/vm/CNIHandlerBlock.cpp "\
+                "~/colibri-VM/src/share/coral/lang/System.cpp "\
+                "~/colibri-VM/src/share/vm/hash_table.cpp "\
+                "~/colibri-VM/src/share/coral/lang/Library.cpp "\
+                "~/colibri-VM/src/share/vm/CallableNativeFunction.cpp "
+                " -I  ~/colibri-VM/includes -fPIC -o ~/colibri-VM/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".so " + "~/colibri-VM/native/" + meth->module_name + "/" + "libwrapper_" + (meth->module_name) + "_" + meth->getName() + meth->get_rtype() + ".cpp").c_str());
         wrappers.push_back(name);
-        
+
 
     }
-    
+
     static void clean(std::string spec_path){
-       
+
         int size = wrappers.size();
         std::string name;
-        
+
         for(int i=0; i < size ; i++){
-            
+
             name = wrappers[i];
-            
-            system(("rm " + std::string(getenv("HOME")) + "/colibri/native/" + spec_path + "/" + name + ".cpp" + " &>/dev/null").c_str());
-            system(("rm " + std::string(getenv("HOME")) + "/colibri/native/" + spec_path + "/" + name + ".o" + " &>/dev/null").c_str());
+
+            system(("rm " + std::string(getenv("HOME")) + "/colibri-VM/native/" + spec_path + "/" + name + ".cpp" + " &>/dev/null").c_str());
+            system(("rm " + std::string(getenv("HOME")) + "/colibri-VM/native/" + spec_path + "/" + name + ".o" + " &>/dev/null").c_str());
             //system(("rm " + name + ".so").c_str());
         }
-        
+
     }
 private:
     WrapperGenerator();
@@ -302,4 +302,3 @@ private:
 std::vector<std::string> WrapperGenerator::wrappers;
 
 #endif /* WRAPPERGENERATOR_H */
-

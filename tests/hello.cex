@@ -1,0 +1,96 @@
+
+# filename: hello.cex
+# version: 0.1
+# test: 1
+# description: none
+# date: 14/11/2018
+# author: Anastasios Temperekidis
+
+
+use NAME=outstream.cex;
+
+public default class Person extends NULL:
+
+	public S name;
+
+	public virtual default R init(R this,S name);
+		sconst "In constructor!"
+		print
+		nl
+		sload_ name
+		rload_ this
+		putfield name
+		rload_ this
+		getfield name
+		print
+		nl
+		rload_ this
+		ret
+		end_func
+
+	public virtual default V hello(R this);
+		sconst "Hello "
+		print
+		rload_ this
+		getfield name
+		print
+		sconst "!"
+		print
+		nl
+		iconst 0
+		ret
+		end_func
+	end_class
+
+virtual V welcome(R person);
+	sconst "Welcome to Colibri "
+	print
+	rload_ person
+	getfield name
+	print
+	sconst "!!!"
+	print
+	nl
+	iconst 0
+	ret
+	end_func
+
+virtual V main();
+	rvar me NULL
+	new Person
+	sconst "Tasos"
+	invoke_virtual Person.init
+	rstore_ me
+	rload_ me
+	invoke_static welcome
+	pop
+	ivar bel 10
+	label NAME=forr:
+	sconst "Hello!"
+	print
+	nl
+	iload_ bel
+	iconst 1
+	isub
+	istore_ bel
+	iload_ bel
+	iconst 0
+	icmp
+	ifg st ex
+	label NAME=st:
+	end_label
+	iload_ bel
+	#i2s
+	#print
+	invoke_static outstream.print259
+	pop
+	#iload_ i
+	#iconst 1
+	#isub
+	jmp forr
+	label NAME=ex:
+	end_label
+	end_label
+	iconst 0
+	ret
+	end_func
