@@ -1,0 +1,48 @@
+
+public default class Player extends NULL:
+public S name;
+public I age;
+public virtual default R new(R this, S name, I age);
+sload_ name
+rload_ this
+putfield name
+iload_ age
+rload_ this
+putfield age
+rload_ this
+ret
+end_func
+public virtual default V greetings(R this);
+sconst "Hello, my name is "
+print
+rload_ this
+getfield name
+print
+nl
+iconst 0
+ret
+end_func
+end_class
+virtual V main();
+rvar player NULL
+svar name ""
+ivar age 0
+sconst "Give me a player name: "
+print
+read
+sstore_ name
+sconst "Give me the age of the player: "
+print
+read
+s2i
+istore_ age
+new Player
+sload_ name
+iload_ age
+invoke_virtual Player.new
+rstore_ player
+rload_ player
+invoke_virtual Player.greetings
+iconst 0
+ret
+end_func

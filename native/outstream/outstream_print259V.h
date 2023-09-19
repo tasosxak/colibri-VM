@@ -3,7 +3,7 @@
 #include "cni.h"
 
 c_void outstream_print259(CNIEnv* env,c_int integer){
-		std::cout<<env->GetInt(integer)<<std::endl;
+		std::cout<<"KEKATOS"<< env->GetInt(integer)<<std::endl;
 		return env->newVoid();
 }		
 

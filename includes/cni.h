@@ -21,7 +21,13 @@
 #include "symbol.h"
 class Object;
 
-class _c_object { public: int oop_id = 0;};
+class _c_object {
+public:
+    int oop_id;
+    _c_object() : oop_id(0) {} // Constructor initializes oop_id to 0
+};
+
+//class _c_object { public: int oop_id = 0;};
 class _c_class: public _c_object{};
 class _c_string: public _c_object{};
 class _c_int : public _c_object{};

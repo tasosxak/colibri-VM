@@ -176,11 +176,8 @@ c_field CNINativeInterface::CNI_GetField(c_object obj, std::string fieldname) {
 
 void CNINativeInterface::CNI_SetIntVar(c_int obj, int val){
     
-    std::cout<<"here";
     Int* ob = (Int*) CNIHandlerBlock::resolve(obj);
-    std::cout<<"near";
     ob->setValue(val);
-    std::cout<<"bear";
     return;
 }
 c_class CNINativeInterface::CNI_GetObjectClass(c_object obj) {

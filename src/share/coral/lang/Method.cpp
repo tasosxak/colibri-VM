@@ -12,7 +12,7 @@
  */
 
 #include "Method.h"
-#include "hashtable.h"
+#include "hash_table.h"
 
 Method::Method(std::string name,Acc_type ACC_FLAG,Mod_type MOD_FLAG, std::string RTYPE):Object(name),Accessible(ACC_FLAG),Modifier(MOD_FLAG)
 {

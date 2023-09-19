@@ -34,9 +34,9 @@ public:
 
         std::string name = "libwrapper_" + meth->module_name +  "_" + meth->class_name + "_" +  meth->getName() + meth->get_rtype();
         std::string filename = name + ".cpp";
-        char* homepath = getenv("HOME");
+        char* CVM_HOME = getenv("CVM_HOME");
 
-        std::ofstream outputFile( std::string(homepath) + "/colibri-VM/native/" + meth->module_name +"/" + meth->class_name + filename);
+        std::ofstream outputFile( std::string(CVM_HOME) + "native/" + meth->module_name +"/" + meth->class_name + filename);
 
 
         outputFile << "#include \"cni.h\"\n";
@@ -135,22 +135,17 @@ public:
 
         outputFile.close();
 
-        const std::string ex_command = "g++ -fPIC -I  ~/colibri-VM/includes -o ~/colibri-VM/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".o" + " -c " + "~/colibri-VM/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".cpp";
+        const std::string ex_command = "g++ -w -arch arm64 -fPIC -I  " + std::string(CVM_HOME) + "includes -o "  + std::string(CVM_HOME) + "native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".o" + " -c " + ""  + std::string(CVM_HOME) + "native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".cpp";
         //std::cout << ex_command.c_str() << endl;
         system(ex_command.c_str());
-        system(("g++ -shared ~/colibri-VM/src/share/coral/lang/Field.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Class.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Literal.cpp "\
-                "~/colibri-VM/src/share/vm/cni.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Integer.cpp "
-                "~/colibri-VM/src/share/coral/lang/Data_Type.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Numeric.cpp "
-                "~/colibri-VM/src/share/coral/lang/Primitive.cpp "
-                "~/colibri-VM/src/share/coral/lang/symbol.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Object.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Int.cpp "
-                "~/colibri-VM/src/share/vm/CNIHandlerBlock.cpp "\
-                " -I  ~/colibri-VM/includes -fPIC -o ~/colibri-VM/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".so " + "~/colibri-VM/native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" +meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".cpp").c_str());
+        system(("g++ -w -dynamiclib -arch arm64 "  
+                  + std::string(CVM_HOME) + "src/share/coral/lang/*.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/cni.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/Content.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/Reference.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/CNIHandlerBlock.cpp "\
+                  + std::string(CVM_HOME) + "native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" +meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".cpp"\
+                  + " -I  "  + std::string(CVM_HOME) + "includes -fPIC -o "  + std::string(CVM_HOME) + "native/" + meth->module_name + "/" + meth->class_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->class_name + "_" + meth->getName() + meth->get_rtype() + ".dylib ").c_str());
         wrappers.push_back(name);
 
 
@@ -161,8 +156,8 @@ public:
 
         std::string name = "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype();
         std::string filename = name + ".cpp";
-        char* homepath = getenv("HOME");
-        std::ofstream outputFile(std::string(homepath) + "/colibri-VM/native/" + meth->module_name + "/" + filename);
+        char* CVM_HOME = getenv("CVM_HOME");
+        std::ofstream outputFile(std::string(CVM_HOME) + "native/" + meth->module_name + "/" + filename);
 
 
         outputFile << "#include \"cni.h\"\n";
@@ -254,26 +249,19 @@ public:
 
         outputFile.close();
 
-        const std::string ex_command = "g++ -fPIC -I  ~/colibri-VM/includes -o ~/colibri-VM/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".o" + " -c " + "~/colibri-VM/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".cpp";
+        const std::string ex_command = "g++ -w -arch arm64 -fPIC -I  "  + std::string(CVM_HOME) + "includes -o "  + std::string(CVM_HOME) + "native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".o" + " -c " + ""  + std::string(CVM_HOME) + "native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".cpp";
         //std::cout << ex_command.c_str() << endl;
         system(ex_command.c_str());
-        system(("g++ -shared ~/colibri-VM/src/share/coral/lang/Field.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Class.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Literal.cpp "\
-                "~/colibri-VM/src/share/vm/cni.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Integer.cpp "
-                "~/colibri-VM/src/share/coral/lang/Data_Type.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Numeric.cpp "
-                "~/colibri-VM/src/share/coral/lang/Primitive.cpp "
-                "~/colibri-VM/src/share/coral/lang/symbol.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Object.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Int.cpp "
-                "~/colibri-VM/src/share/vm/CNIHandlerBlock.cpp "\
-                "~/colibri-VM/src/share/coral/lang/System.cpp "\
-                "~/colibri-VM/src/share/vm/hash_table.cpp "\
-                "~/colibri-VM/src/share/coral/lang/Library.cpp "\
-                "~/colibri-VM/src/share/vm/CallableNativeFunction.cpp "
-                " -I  ~/colibri-VM/includes -fPIC -o ~/colibri-VM/native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".so " + "~/colibri-VM/native/" + meth->module_name + "/" + "libwrapper_" + (meth->module_name) + "_" + meth->getName() + meth->get_rtype() + ".cpp").c_str());
+        system(("g++ -w -dynamiclib -arch arm64 "  
+                  + std::string(CVM_HOME) + "src/share/coral/lang/*.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/cni.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/CNIHandlerBlock.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/hash_table.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/Content.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/Reference.cpp "\
+                  + std::string(CVM_HOME) + "src/share/vm/CallableNativeFunction.cpp "\
+                  + std::string(CVM_HOME) + "native/" + meth->module_name + "/" + "libwrapper_" + (meth->module_name) + "_" + meth->getName() + meth->get_rtype() + ".cpp" \
+                  + " -I  "  + std::string(CVM_HOME) + "includes -fPIC -o "  + std::string(CVM_HOME) + "native/" + meth->module_name + "/" + "libwrapper_" + meth->module_name + "_" + meth->getName() + meth->get_rtype() + ".dylib ").c_str());
         wrappers.push_back(name);
 
 
@@ -288,8 +276,8 @@ public:
 
             name = wrappers[i];
 
-            system(("rm " + std::string(getenv("HOME")) + "/colibri-VM/native/" + spec_path + "/" + name + ".cpp" + " &>/dev/null").c_str());
-            system(("rm " + std::string(getenv("HOME")) + "/colibri-VM/native/" + spec_path + "/" + name + ".o" + " &>/dev/null").c_str());
+            system(("rm " + std::string(getenv("CVM_HOME")) + spec_path + "/" + name + ".cpp" + " &>/dev/null").c_str());
+            system(("rm " + std::string(getenv("CVM_HOME")) + spec_path + "/" + name + ".o" + " &>/dev/null").c_str());
             //system(("rm " + name + ".so").c_str());
         }
 

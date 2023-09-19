@@ -1,0 +1,14 @@
+virtual S x();
+svar f ""
+sconst "H"
+sconst "W"
+sadd
+ret
+end_func
+
+virtual V main();
+invoke_static x
+print
+iconst 0
+ret
+end_func

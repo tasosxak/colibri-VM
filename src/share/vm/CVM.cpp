@@ -395,7 +395,7 @@ Package* CVM::compile(Package* package) {
 
                     method->native = true;
                     struct CNIEnv* env;
-                    if (access((std::string(getenv("HOME")) + "/colibri-VM/native/" + method->module_name + "/" + method->class_name + "/" + "libwrapper_" + method->module_name + "_" + method->class_name + "_" + method->getName() + method->get_rtype() + ".so").c_str(), F_OK) == -1) {
+                    if (access((std::string(getenv("CVM_HOME")) + "native/" + method->module_name + "/" + method->class_name + "/" + "libwrapper_" + method->module_name + "_" + method->class_name + "_" + method->getName() + method->get_rtype() + ".dylib").c_str(), F_OK) == -1) {
                         WrapperGenerator::generate_virtual(env, method);
                         WrapperGenerator::clean(method->module_name + "/" + method->class_name);
                     }
@@ -430,7 +430,7 @@ Package* CVM::compile(Package* package) {
                     func->native = true;
                     struct CNIEnv* env;
 
-                    if (access((std::string(getenv("HOME")) + "/colibri-VM/native/" + func->module_name + "/" + "libwrapper_" + func->module_name + "_" + func->getName() + func->get_rtype() + ".so").c_str(), F_OK) == -1) {
+                    if (access((std::string(getenv("CVM_HOME")) + "native/" + func->module_name + "/" + "libwrapper_" + func->module_name + "_" + func->getName() + func->get_rtype() + ".dylib").c_str(), F_OK) == -1) {
                         WrapperGenerator::generate_static(env, func);
                         WrapperGenerator::clean(func->module_name);
                     }
@@ -1153,7 +1153,7 @@ int CVM::execute() {
 
                 std::smatch tokens;
 
-                if (std::regex_search(init_linecode, tokens, std::regex("v_sconst (.*) \"(.*)\""))) {
+                if (std::regex_search(init_linecode, tokens, std::regex("svar (.*) \"(.*)\""))) {
 
                     Literal* str = new Literal(tokens[2]);
                     Reference* sref = new Reference();
@@ -1618,7 +1618,7 @@ int CVM::execute() {
 
                     int prev_top = CNIHandlerBlock::top;
                     struct CNIEnv env;
-                    void* handle = dlopen((std::string(getenv("HOME")) + "/colibri-VM/native/" + y->module_name + "/" + y->class_name + "/" + "libwrapper_" + y->module_name + "_" + y->class_name + "_" + y->getName() + y->get_rtype() + ".so").c_str(), RTLD_LAZY);
+                    void* handle = dlopen((std::string(getenv("CVM_HOME")) + "native/" + y->module_name + "/" + y->class_name + "/" + "libwrapper_" + y->module_name + "_" + y->class_name + "_" + y->getName() + y->get_rtype() + ".dylib").c_str(), RTLD_LAZY);
 
                     if (!handle) {
 
@@ -1801,7 +1801,7 @@ int CVM::execute() {
 
                     int prev_top = CNIHandlerBlock::top;
                     struct CNIEnv env;
-                    void* handle = dlopen((std::string(getenv("HOME")) + "/colibri-VM/native/" + x->module_name + "/libwrapper_" + x->module_name + "_" + x->getName() + x->get_rtype() + ".so").c_str(), RTLD_LAZY);
+                    void* handle = dlopen((std::string(getenv("CVM_HOME")) + "native/" + x->module_name + "/libwrapper_" + x->module_name + "_" + x->getName() + x->get_rtype() + ".dylib").c_str(), RTLD_LAZY);
 
                     if (!handle) {
 
